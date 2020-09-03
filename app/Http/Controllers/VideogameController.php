@@ -65,9 +65,9 @@ class VideogameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Videogame $videogame)
     {
-        //
+      return view('videogames.edit', compact('videogame'));
     }
 
     /**
@@ -77,9 +77,12 @@ class VideogameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Videogame $videogame)
     {
-        //
+      $data = $request->all();
+      $videogame->update($data);
+
+      return redirect()->route('videogames.show',$videogame);
     }
 
     /**
@@ -88,8 +91,9 @@ class VideogameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Videogame $videogame)
     {
-        //
+      $videogame->delete();
+      return redirect()->route('videogames.index');
     }
 }

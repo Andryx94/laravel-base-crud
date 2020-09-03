@@ -1,3 +1,9 @@
+{{-- To do list:
+1- sistemare codice;
+2- aggiungere validazione dati;
+3- aggiungere commenti;
+4- formattare con sass; --}}
+
 <h1>Lista Videogame</h1>
 <a href="{{route('videogames.create')}}">Aggiungi</a>
 
